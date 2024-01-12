@@ -1,5 +1,5 @@
 
-import 'package:chatapp/Widgets/customButton.dart';
+import 'package:chatapp/Widgets/custom_button.dart';
 import 'package:chatapp/Widgets/customTextField.dart';
 import 'package:chatapp/helper/showdialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -69,7 +69,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 // const SizedBox(
                 //   height: 15,
                 // ),
-                CustomTextField(
+                Custom_TextField(
                   onchanged: (data) {
                     email = data;
                   },
@@ -80,7 +80,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                CustomTextField(
+                Custom_TextField(
                   onchanged: (data) {
                     password = data;
                   },
@@ -141,7 +141,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       } else {}
                     },
                     child: const Text('Submit')),
-                Custom_Button(
+                CustomButton(
                   nameofbutton: 'Login',
                   question: 'Already have account?',
                   onpressed: () {

@@ -1,14 +1,13 @@
-// ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
 
-class Custom_Button extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final String question;
   final String nameofbutton;
 
-  VoidCallback? onpressed;
+  final VoidCallback? onpressed;
 
-  Custom_Button({
+  const CustomButton({
     super.key,
     this.onpressed,
     required this.question,

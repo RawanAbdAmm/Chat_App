@@ -1,15 +1,13 @@
 
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
+class Custom_TextField extends StatelessWidget {
   final String labeltext;
   final Icon icon;
   final bool visible;
   Function(String)? onchanged;
 
-   CustomTextField(
+   Custom_TextField(
       {super.key,
       required this.labeltext,
       required this.icon,
@@ -24,6 +22,7 @@ class CustomTextField extends StatelessWidget {
           if(value!.isEmpty){
             return 'Field Can\'t be empty';
           }
+          return null;
 
         },
         onChanged: onchanged,

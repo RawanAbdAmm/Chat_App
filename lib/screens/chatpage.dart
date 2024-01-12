@@ -9,13 +9,15 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class Chatpage extends StatelessWidget {
   static String id = 'chatpage';
-  TextEditingController controllertext = TextEditingController();
-  CollectionReference messages =
-      FirebaseFirestore.instance.collection(messageCollections);
-  final _controller = ScrollController();
+
+  const Chatpage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController controllertext = TextEditingController();
+    CollectionReference messages =
+        FirebaseFirestore.instance.collection(messageCollections);
+    final controller = ScrollController();
     var email = ModalRoute.of(context)!.settings.arguments;
     return StreamBuilder<QuerySnapshot>(
         stream: messages.orderBy(kcreatedAt, descending: true).snapshots(),
@@ -50,7 +52,7 @@ class Chatpage extends StatelessWidget {
                   Expanded(
                     child: ListView.builder(
                       reverse: true,
-                      controller: _controller,
+                      controller: controller,
                       itemCount: msglist.length,
                       itemBuilder: (context, index) {
                         return msglist[index].id == email
@@ -88,11 +90,11 @@ class Chatpage extends StatelessWidget {
                               },
                             );
                             controllertext.clear();
-                            _controller.animateTo(0,
+                            controller.animateTo(0,
                                 duration: const Duration(milliseconds: 500),
                                 curve: Curves.fastOutSlowIn);
                           },
-                          icon: Icon(Icons.send),
+                          icon: const Icon(Icons.send),
                         )
                       ],
                     ),
@@ -101,7 +103,7 @@ class Chatpage extends StatelessWidget {
               ),
             );
           } else {
-            return ModalProgressHUD(
+            return const ModalProgressHUD(
               inAsyncCall: true,
               child: Scaffold(),
             );
@@ -111,6 +113,7 @@ class Chatpage extends StatelessWidget {
 
   _signOut(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
-    Navigator.of(context).pushNamedAndRemoveUntil(LoginPage.id,(Route<dynamic> route) => false); 
+    Navigator.of(context)
+        .pushNamedAndRemoveUntil(LoginPage.id, (Route<dynamic> route) => false);
   }
 }

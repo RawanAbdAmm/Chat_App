@@ -1,7 +1,7 @@
 // ignore_for_file: unused_local_variable
 
-import 'package:chatapp/Widgets/Login_image.dart';
-import 'package:chatapp/Widgets/customButton.dart';
+import 'package:chatapp/Widgets/login_image.dart';
+import 'package:chatapp/Widgets/custom_button.dart';
 import 'package:chatapp/Widgets/customTextField.dart';
 import 'package:chatapp/helper/showdialog.dart';
 import 'package:chatapp/screens/chatpage.dart';
@@ -33,14 +33,14 @@ class _LoginPage extends State<LoginPage> {
           child: Form(
             key: formKey,
             child: Column(children: [
-              const Login_Image(
+              const LoginImage(
                 image: 'images/6310507.jpg',
                 text: 'Login',
               ),
               const SizedBox(
                 height: 30,
               ),
-              CustomTextField(
+              Custom_TextField(
                 onchanged: (data) {
                   email = data;
                 },
@@ -51,7 +51,7 @@ class _LoginPage extends State<LoginPage> {
               const SizedBox(
                 height: 15,
               ),
-              CustomTextField(
+              Custom_TextField(
                 onchanged: (data) {
                   password = data;
                 },
@@ -87,12 +87,12 @@ class _LoginPage extends State<LoginPage> {
                     } else {}
                   },
                   child: const Text('Login')),
-              Custom_Button(
+              CustomButton(
                 question: 'don\'t have an account?',
                 nameofbutton: 'Sign Up',
                 onpressed: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (ctx) => RegisterScreen()),
+                    MaterialPageRoute(builder: (ctx) =>const RegisterScreen()),
                   );
                 },
               )

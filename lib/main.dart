@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       
       routes: {
        Chatpage.id:(context)=>Chatpage(),
-       LoginPage.id:(context)=>LoginPage(),
+       LoginPage.id:(context)=>const LoginPage(),
       },
     );
   }
